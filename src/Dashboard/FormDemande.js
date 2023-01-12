@@ -18,12 +18,30 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import React, { useState } from 'react';
+import { useNavigate } from "react-router";
 
+const numbers = [
+    {
+        value: "materiel",
+        label: "materiel",
+    },
+    {
+        value: "consomable",
+        label: "consomable",
+    },
+    {
+        value: "aide humain",
+        label: "aide humain",
+    },
 
+];
 
 const FbDefaultForm = () => {
-
-
+    const navigate = useNavigate();
+    const [number, setNumber] = React.useState("");
+    const handleChange3 = (event) => {
+        setNumber(event.target.value);
+    };
 
     const createDemande = (e) => {
         //console.log(desc);
@@ -31,15 +49,15 @@ const FbDefaultForm = () => {
         const data = e.currentTarget.elements;
         const demande = {
             description: data.description.value,
-            typebesoin: data.type.value,
+            typebesoin: number,
             statut: 'en cours ',
             user: {
-                id: 3,
-                email: 'hamid@gmail.com',
-                firstName: 'hamid',
+                id: 4,
+                email: 'client@gmail.com',
+                firstName: 'client',
                 lastName: 'test',
                 tele: '06458975',
-                username: 'hamiid',
+                username: 'client',
             }
         }
         console.log(demande);
@@ -57,6 +75,9 @@ const FbDefaultForm = () => {
             .then(response => {
                 console.log(response.data);
                 alert('ajouter avec succe')
+                navigate('/');
+
+
             })
             .catch(error => {
                 console.log(error);
@@ -113,16 +134,25 @@ const FbDefaultForm = () => {
                                 mb: 2,
                             }}
                         />
+
                         <TextField
-                            id="type"
-                            label="Type de besoin"
-                            type="text"
-                            variant="outlined"
                             fullWidth
+                            id="type2"
+                            variant="outlined"
+                            select
+                            label="selectionner le type "
+                            value={number}
+                            onChange={handleChange3}
                             sx={{
                                 mb: 2,
                             }}
-                        />
+                        >
+                            {numbers.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            ))}
+                        </TextField>
                         <div>
                             <Button color="primary" variant="contained" type="submit" >
                                 Submit

@@ -32,12 +32,12 @@ function remplireData(data) {
 export default function ClientDemands() {
     const [rows, setRows] = useState([]);
     const user = {
-        id: 3,
-        email: 'hamid@gmail.com',
-        firstName: 'hamid',
+        id: 4,
+        email: 'client@gmail.com',
+        firstName: 'client',
         lastName: 'test',
         tele: '06458975',
-        username: 'hamiid',
+        username: 'client',
     }
     const getdemands = () => {
 
