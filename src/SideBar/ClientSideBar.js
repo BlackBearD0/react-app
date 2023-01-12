@@ -1,25 +1,19 @@
-import React, { Children, useContext } from 'react'
-import { Link, useNavigate, } from 'react-router-dom'
-import LogoutIcon from '@mui/icons-material/Logout';
+import React, { Children } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import "../App.css";
-import { SidebarData } from './SidebarData';
-
+import { ClientSidebarData } from './ClientSideBarData';
 import { Button } from '@mui/material';
 import authContext from '../Login/context';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
-
-export default function Sidebar({ children, isloggedin, isadmin }) {
+export default function ClientSidebar({ children, isloggedin, isadmin }) {
     const navigate = useNavigate();
-    const auth = useContext(authContext);
-
     return (
-
-
         <div className='containner'>
             <div className="sidebar">
                 <ul className='sidebarlist'>
-                    {SidebarData.map((val, key) => {
+                    {ClientSidebarData.map((val, key) => {
 
                         return (
                             <li key={key} className="roww" id={window.location.pathname == val.link ? "active" : ""}
@@ -36,7 +30,7 @@ export default function Sidebar({ children, isloggedin, isadmin }) {
 
                     })}
                 </ul>
-                <Button id='logout' onClick={() => {
+                <Button id='logoutt' onClick={() => {
                     localStorage.removeItem('isloggedin')
                     localStorage.removeItem('isadmin')
                     isloggedin(false)
@@ -48,6 +42,5 @@ export default function Sidebar({ children, isloggedin, isadmin }) {
             </div>
             <main>{children}</main>
         </div>
-
     )
 }

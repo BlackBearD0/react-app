@@ -2,6 +2,16 @@
 
     margin-top: 10%;
 
-    
+}
 
+.containnner{
+    display: flex;
+    width: 400px;
+    height: 400px;
+    background-color: #2F4050;
+
+}
+
+.containnner .login{
+    text-align: center;
 }

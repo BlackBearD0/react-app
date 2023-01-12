@@ -1,21 +1,66 @@
 import Register from './Register/Register';
-import Login from './Login/Login';
 import Sidebar from './SideBar/Sidebar';
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import Dashboard from './Dashboard/Dashboard';
+import Dashboard from './Dashboard/Demands';
+import Demands from './Dashboard/Demands';
+import React, { useContext, useState } from 'react';
+import FbDefaultForm from './Dashboard/FormDemande';
+import ClientDemands from './Dashboard/ClientDemands';
+import SignIn from './Login/newLogin';
+import SignUp from './Register/SignUp';
+import ClientSidebar from './SideBar/ClientSideBar';
+import authContext from './Login/context';
+import Config from './global.js';
+
+
 
 
 function App() {
+
+
+  const [isloggedin, setIsloggedIn] = useState(localStorage.getItem('isloggedin'));
+  const [isadmin, setAdmin] = useState(localStorage.getItem('isadmin'));
+
+
   return (
 
 
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/sidebar" element={<Sidebar />} />
-      <Route path="/register" element={<Register />} />
-    </Routes>
+
+    isloggedin ? (
+
+      isadmin == true ? (
+        <>
+
+          <Sidebar isloggedin={setIsloggedIn} isadmin={setAdmin}>
+            <Routes>
+              <Route path="/" element={<Demands />} />
+            </Routes>
+          </Sidebar>
+        </>
+      ) : (
+        <ClientSidebar isloggedin={setIsloggedIn} isadmin={setAdmin} >
+          <Routes>
+            <Route path="/form" element={<FbDefaultForm />} />
+            <Route path="/" element={<ClientDemands />} />
+          </Routes>
+        </ClientSidebar>
+
+      )
+    ) : (
+
+      <>
+        <Routes>
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/" element={<SignIn isloggedin={setIsloggedIn} isadmin={setAdmin} />} />
+
+        </Routes>
+      </>
+    )
+
+
+
+
 
 
   );
