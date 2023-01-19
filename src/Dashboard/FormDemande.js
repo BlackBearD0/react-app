@@ -44,7 +44,6 @@ const FbDefaultForm = () => {
     };
 
     const createDemande = (e) => {
-        //console.log(desc);
         e.preventDefault();
         const data = e.currentTarget.elements;
         const demande = {
@@ -62,15 +61,6 @@ const FbDefaultForm = () => {
         }
         console.log(demande);
 
-        /* const user = {
-             id: 3,
-             email: 'hamid@gmail.com',
-             firstName: 'hamid',
-             lastName: 'test',
-             tele: '06458975',
-             username: 'hamiid',
-         }
- */
         axios.post('http://localhost:8083/demandes/send', demande)
             .then(response => {
                 console.log(response.data);
