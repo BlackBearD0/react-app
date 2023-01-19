@@ -128,7 +128,6 @@ const ExTable = ({ products, getdemands }) => {
                             >
                                 <Box>
                                     <Typography
-                                        //   variant="h6"
                                         sx={{
                                             fontWeight: "100",
                                         }}
