@@ -9,11 +9,9 @@ import CTable from './clienttable';
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 200 },
-    //  { field: 'utilisateur', headerName: 'utilisateur', width: 200 },
     { field: 'description', headerName: 'Description', width: 200 },
     { field: 'status', headerName: 'status', width: 200 },
     { field: 'type', headerName: 'type', width: 200 },
-    //  { field: 'Actions', headerName: 'Actions', width: 130, renderCell: renderDetailsButton, disableClickEventBubbling: true, },
 
 ];
 

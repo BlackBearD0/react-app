@@ -4,32 +4,13 @@ import '../App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ExTable from './table';
-/*
-const renderDetailsButton = (params) => {
-    return (
-        <strong>
-            <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                style={{ marginLeft: 16 }}
-                onClick={() => {
-                    parseName(params.row.col6)
-                }}
-            >
-                More Info
-            </Button>
-        </strong>
-    )
-}
-*/
+
 const columns = [
     { field: 'id', headerName: 'ID', width: 200 },
     { field: 'utilisateur', headerName: 'utilisateur', width: 200 },
     { field: 'description', headerName: 'Description', width: 200 },
     { field: 'status', headerName: 'status', width: 200 },
     { field: 'type', headerName: 'type', width: 200 },
-    //  { field: 'Actions', headerName: 'Actions', width: 130, renderCell: renderDetailsButton, disableClickEventBubbling: true, },
 
 ];
 

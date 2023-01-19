@@ -19,7 +19,6 @@ const CTable = ({ products, getdemands }) => {
         axios.post('http://localhost:8083/demandes/status', data)
             .then(response => {
                 console.log(response.data);
-                // setRows(remplireData(response.data))
                 getdemands();
 
             })
@@ -36,7 +35,6 @@ const CTable = ({ products, getdemands }) => {
         axios.post('http://localhost:8083/demandes/status', data)
             .then(response => {
                 console.log(response.data);
-                // setRows(remplireData(response.data))
                 getdemands();
 
 
@@ -52,7 +50,6 @@ const CTable = ({ products, getdemands }) => {
         axios.post('http://localhost:8083/demandes/delete', data)
             .then(response => {
                 console.log(response.data);
-                // setRows(remplireData(response.data))
                 getdemands();
 
 
